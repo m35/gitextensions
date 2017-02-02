@@ -677,7 +677,17 @@ namespace GitUI.SpellChecker
                 // Clipboard.SetText throws exception when text is null or empty. See https://msdn.microsoft.com/en-us/library/ydby206k.aspx
                 if (!string.IsNullOrEmpty(text))
                 {
+                    // clearing text before set it back somehow cure sporadic inability to paste data in commit dialog
+                    Clipboard.Clear();
                     Clipboard.SetText(text);
+                    // this waits also for fix problem with clipboard in case if Clipboard.Clear() was not enough
+                    for (int i = 0; i < 10; i++)
+                    {
+                        if (Clipboard.ContainsText())
+                            break;
+
+                        Thread.Sleep(50);
+                    }
                 }
             }
             else if (e.Control && !e.Alt && e.KeyCode == Keys.Z)
