@@ -48,6 +48,7 @@
             this.branchesListView.FullRowSelect = true;
             this.branchesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.branchesListView.Location = new System.Drawing.Point(12, 40);
+            this.branchesListView.MultiSelect = false;
             this.branchesListView.Name = "branchesListView";
             this.branchesListView.Size = new System.Drawing.Size(290, 52);
             this.branchesListView.TabIndex = 1;
