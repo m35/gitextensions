@@ -28,7 +28,7 @@ IF ERRORLEVEL 1 EXIT /B 1
 %msbuild% %projectSshAskPass% /p:Platform=Win32 %msbuildparams%
 IF ERRORLEVEL 1 EXIT /B 1
 
-call MakeInstallers.cmd
+REM call MakeInstallers.cmd
 IF ERRORLEVEL 1 EXIT /B 1
 
 %msbuild% %project% /p:Platform="Any CPU" /p:DefineConstants=__MonoCS__ %msbuildparams%
