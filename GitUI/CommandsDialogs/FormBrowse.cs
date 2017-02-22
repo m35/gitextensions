@@ -483,12 +483,14 @@ namespace GitUI.CommandsDialogs
             UICommands.RaisePreBrowseInitialize(this);
 
             // check for updates
+#if false
             if (Settings.LastUpdateCheck.AddDays(7) < DateTime.Now)
             {
                 Settings.LastUpdateCheck = DateTime.Now;
                 var updateForm = new FormUpdates(Module.AppVersion);
                 updateForm.SearchForUpdatesAndShow(Owner, false);
             }
+#endif
 
             bool bareRepository = Module.IsBareRepository();
             bool validWorkingDir = Module.IsValidGitWorkingDir();
@@ -958,11 +960,11 @@ namespace GitUI.CommandsDialogs
         private string GenerateWindowTitle(string workingDir, bool isWorkingDirValid, string branchName)
         {
 #if DEBUG
-            const string defaultTitle = "Git Extensions -> DEBUG <-";
-            const string repositoryTitleFormat = "{0} ({1}) - Git Extensions -> DEBUG <-";
+            const string defaultTitle = "Git Extensions ~> m35 <~ -> DEBUG <-";
+            const string repositoryTitleFormat = "{0} ({1}) - Git Extensions ~> m35 <~ -> DEBUG <-";
 #else
-            const string defaultTitle = "Git Extensions";
-            const string repositoryTitleFormat = "{0} ({1}) - Git Extensions";
+            const string defaultTitle = "Git Extensions ~> m35 <~";
+            const string repositoryTitleFormat = "{0} ({1}) - Git Extensions ~> m35 <~";
 #endif
             if (!isWorkingDirValid)
                 return defaultTitle;

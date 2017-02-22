@@ -45,7 +45,9 @@ GitCommandsTests/test-results/*
 GitExtensionsMono.sln.VisualState.xml
 TestResult.xml
 libgit2sharp
-Setup/GitExtensions/
+Setup/GitExtensions/Plugins/
+Setup/GitExtensions/PuTTY/
+Setup/GitExtensions/TranslationApp*
 Setup/GitExtensions*Mono.zip
 Setup/tools/tx.exe
 /Bin/Git*.exe
