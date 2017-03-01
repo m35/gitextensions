@@ -15,6 +15,7 @@ using PatchApply;
 using GitCommands.Settings;
 using GitUI.Editor.Diff;
 using ResourceManager;
+using System.Runtime.InteropServices;
 
 namespace GitUI.Editor
 {
@@ -725,7 +726,14 @@ namespace GitUI.Editor
                 }
             }
 
-            Clipboard.SetText(DoAutoCRLF(code));
+            try
+            {
+                Clipboard.SetText(DoAutoCRLF(code));
+            }
+            catch (ExternalException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private string RemovePrefix(string line)
